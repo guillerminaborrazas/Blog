@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    {% load static %}
+    <link rel="icon" type="image/x-icon" href="{% static 'AppCoder/assets/imagen.ico' %}"/>
+    <link href="{% static 'AppGeneral/css/bootstrap.min.css'%}" rel="stylesheet"/>
+    <link href="{% static 'AppGeneral/css/styles.css' %}" rel="stylesheet"/>
+    <script src="{% static 'AppGeneral/js/bootstrap.min.js' %}"></script>
+    <title>Register</title>
+</head>
+<body>
+    <div class="containerForm">
+        <form action="" method="POST" class="formLogin"> {% csrf_token %}
+            <h3 style="color: rgb(135, 54, 111); font-weight:bold; margin-bottom: 30px; display: flex; justify-content: center; align-items: center;">REGISTRATE</h3>
+            <div>
+                <input name="username" type="text" placeholder="User" class="inputLogin">
+            </div>
+            <div>
+                <input name="password1" type="password" placeholder="Password" class="inputLogin">
+            </div>
+            <div>
+                <input name="password2" type="password" placeholder="Password Confirmation" class="inputLogin">
+            </div>
+            <div>
+                <button class="btn btn-primary" type="submit">Crear</button>
+            </div>
+            {% if error %}
+                <p style="color: red;">{{error}}</p>
+            {% endif %}
+            <p style="color: rgb(135, 54, 111);">Ya tienes una cuenta? <a href="{% url 'Login' %}">Login</a></p>
+        </form>
+    </div>
+</body>
+</html>
