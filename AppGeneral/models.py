@@ -9,7 +9,10 @@ class Blog(models.Model):
     cuerpo = models.TextField()
     autor = models.ForeignKey(User, on_delete=models.CASCADE)
     fecha = models.DateTimeField(auto_now_add=True, null = True, blank = True)
-    imagen = models.ImageField()
+    imagen = models.ImageField(null=True, blank=True, upload_to="imagenes")
+    class Meta:
+        ordering = ['-fecha']
+
     def __str__(self):
         return f"Titulo: {self.titulo} - Subtitulo: {self.subtitulo} - Autor: {self.autor}"
 

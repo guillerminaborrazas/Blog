@@ -1,2 +1,18 @@
-{% extends inicio.html %}
+{% extends "AppGeneral/inicio.html" %}
 {% load static %}
+
+{% block contenidoQueCambia %}
+    <div class="p-5">
+        <p></p>
+        <p></p>
+        <ul>
+            <h3>Mi Perfil</h3>
+            <div class="profile"><h6>Usuario:&nbsp</h6><p>{{user.username}}</p></div>
+            <div class="profile"><h6>Email:&nbsp</h6><p>{{user.email}}</p></div>
+            <div class="profile"><h6>Nombre:&nbsp</h6><p>{{user.first_name}}</p></div>
+            <div class="profile"><h6>Apellido:&nbsp</h6><p>{{user.last_name}}</p></div>
+        </ul>
+        <a href="{% url 'EditarPerfil' %}" class="btn btn-success" style="text-decoration: none; color: white;">Editar Perfil</a>
+        <a href="{% url 'EditarPerfil' %}" class="btn btn-success" style="text-decoration: none; color: white;">Avatar</a>
+    </div>
+{% endblock %}

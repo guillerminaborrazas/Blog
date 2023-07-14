@@ -1,0 +1,28 @@
+<div>
+    {% extends "AppGeneral/inicio.html" %}
+    {% load static %}
+    {% block contenidoQueCambia %}
+    <section>
+        <div class="container px-5 shrink-to-fit">
+            <div class="row gx-5 align-items-center">
+                <div class="order-lg-1">
+                    <p></p>
+                    <p></p>
+                    <div class="p-5"><img class="img-fluid rounded-circle col-lg-6" style="float: right;" src="{% static 'AppGeneral/assets/img/04.jpg' %}" alt="..." />
+                        <p></p>
+                        <p></p>
+                        <h2 class="display-4">About</h2>
+                        <h3 class="card-title mb-3">Maria Guillermina Borrazas</h3>
+                        <p class="card-text">Estudiante de Ingeniería Eléctrica</p>
+                        <p class="card-text">Seguime en:</p>
+                        <a href="https://github.com/guillerminaborrazas"><button class="btn btn-success">Github</button></a>
+                        <a href="https://www.linkedin.com/in/guillermina-borraz%C3%A1s-875346263/"><button class="btn btn-success">Linkedin</button></a>
+                        <p>Hola! Me llamo Guillermina y soy estudiante de Ingeniería Eléctrica en la Universidad de la República. Hice el curso de Python en Coderhouse para poder complementar mis conocimientos en el area de programación e incluirlo en mi curriculum. Tengo 20 años y estoy iniciando en el rubro. Disfuto mucho hacer deporte como forma de despejarme.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    {% endblock %}
+
+</div>

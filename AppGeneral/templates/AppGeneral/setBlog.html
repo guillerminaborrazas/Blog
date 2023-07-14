@@ -1,0 +1,20 @@
+{% extends 'AppGeneral/inicio.html' %}
+{% load static %}
+
+
+
+{% block contenidoQueCambia %}
+<div class="formBlog">
+    <div style="padding-top: 50px;">
+        <br>
+        <br>
+        <h1 class="text-center">Nuevo Post</h1>
+    </div>
+    <form method="post" style="width: 40%; text-align: center; padding-left: 450px;">{% csrf_token %}
+        {{ miFormulario.as_table }}
+        <button type="submit" class="btn btn-success">Guardar</button>
+    </form>
+</div>
+<br>
+<br>
+{% endblock %}

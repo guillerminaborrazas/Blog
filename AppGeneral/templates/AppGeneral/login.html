@@ -12,7 +12,7 @@
 <body>
     <div class="containerForm">
         <form action="" method="POST" class="formLogin"> {% csrf_token %}
-            <h3 style="color: rgb(135, 54, 111); font-weight:bold; margin-bottom: 30px; display: flex; justify-content: center; align-items: center;">INICIA SESIÓN</h3>
+            <h3 style="color: wheat; font-weight:bold; margin-bottom: 30px; display: flex; justify-content: center; align-items: center;">INICIA SESIÓN</h3>
             <div>
                 <input name="user" type="text" placeholder="Username" class="inputLogin">
             </div>
@@ -25,7 +25,7 @@
             {% if error %}
                 <p style="color: red;">{{error}}</p>
             {% endif %}
-            <p style="color: rgb(135, 54, 111);">Aun no tienes una cuenta? <a href="{% url 'Registro' %}">Registrate</a></p>
+            <p style="color: wheat;">Aun no tienes una cuenta? <a href="{% url 'Registro' %}">Registrate</a></p>
         </form>
     </div>
 </body>

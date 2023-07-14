@@ -1,12 +1,23 @@
-{% extends "inicio.html" %}
+<div>
+{% extends 'AppGeneral/inicio.html' %}
 {% load static %}
-<h3>Editar Perfil</h3>
-<h6>{{user.username}}</h6>
 
-<form method="POST"> {% csrf_token %}
-    <table>
-        {{ form.as_table }}
-    </table>
-    <input type="submit" value="Editar perfil">
-</form>
-<a href="{%url cambioContrasena %}">Cambiar contraseña</a>
+{% block contenidoQueCambia %}
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <div style="padding: 50px">
+        <h3>Editar Perfil</h3>
+        <h6>{{user.username}}</h6>
+
+        <form method="POST"> {% csrf_token %}
+            <table>
+                {{ form.as_table }}
+            </table>
+            <input type="submit" class="btn btn-primary" value="Editar perfil">
+        </form>
+        <a href="{%url 'cambioContrasena' %}"><button class="btn btn-success">Cambiar contraseña</button></a>
+    </div>
+{% endblock %}
+</div>

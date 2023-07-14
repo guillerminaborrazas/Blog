@@ -12,6 +12,8 @@ urlpatterns = [
     path('pages/', pages, name='Pages'),
     path('messages/', mensajes, name= 'Mensajes'),
     path('cambioPassword/', cambiarPassword, name= 'cambioContrasena'),
-    path('logout', LogoutView.as_view(template_name= 'AppGeneral/login.html'), name = 'Logout')
-
+    path('editProfile/', editProfile, name='EditarPerfil'),
+    path('blogging/', crearNuevaPublicacion, name='Publicar'),
+    path('logout', LogoutView.as_view(template_name= 'AppGeneral/login.html'), name = 'Logout'),
+    
 ]
