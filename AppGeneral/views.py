@@ -38,11 +38,13 @@ def registro(request):
 
 @login_required  
 def viewProfile(request):  
-    user = request.user
-    return render(request, 'AppGeneral/perfil.html', {'user': user})
+    #user = request.user
+    avatar = getavatar(request)
+    return render(request, 'AppGeneral/perfil.html', {'avatar': avatar})
 
 @login_required  
 def editProfile(request):
+    avatar = getavatar(request)
     usuario = request.user
     user_basic_info = User.objects.get(id = usuario.id)
     if request.method == "POST":
@@ -56,24 +58,26 @@ def editProfile(request):
             return render(request, 'AppGeneral/perfil.html')
     else:
         form = UserEditForm(initial= {'username': usuario.username, 'email': usuario.email, 'first_name': usuario.first_name, 'last_name': usuario.last_name })
-        return render(request, 'AppGeneral/editarPerfil.html', {"form": form})
+        return render(request, 'AppGeneral/editarPerfil.html', {"form": form}, {'avatar': avatar})
 
 @login_required    
 def crearNuevaPublicacion(request):
+    avatar = getavatar(request)
     if request.method == "POST":
-        miFormulario = formSetBlog(request.POST) # Aqui me llega la informacion del html
+        miFormulario = formSetBlog(request.POST, request.FILES) # Aqui me llega la informacion del html
         if miFormulario.is_valid():
             autor = User.objects.get(username = request.user)
-            blog = Blog(autor = autor, imagen = miFormulario.cleaned_data['imagen'], titulo = miFormulario.cleaned_data['titulo'], subtitulo = miFormulario.cleaned_data['subtitulo'], cuerpo = miFormulario.cleaned_data['cuerpo'])
+            blog = Blog(autor = autor, imagen = miFormulario.cleaned_data['imagen'], titulo = miFormulario.cleaned_data['titulo'], subtitulo = miFormulario.cleaned_data['subtitulo'], cuerpo = miFormulario.cleaned_data['cuerpo'], id = request.user.id)
             blog.save()
             miFormulario = formSetBlog()
-            return render(request, "AppGeneral/setBlog.html", {'miFormulario': miFormulario})
+            return render(request, "AppGeneral/setBlog.html", {'miFormulario': miFormulario}, {'avatar': avatar})
     else: 
         miFormulario = formSetBlog()
-        return render(request, "AppGeneral/setBlog.html", {'miFormulario': miFormulario})
+        return render(request, "AppGeneral/setBlog.html", {'miFormulario': miFormulario}, {'avatar': avatar})
 
 @login_required
 def cambiarPassword(request):
+    avatar = getavatar(request)
     usuario = request.user    
     if request.method == "POST":
         form = ChangePasswordForm(data = request.POST, user = usuario)
@@ -85,15 +89,17 @@ def cambiarPassword(request):
         return redirect("/perfil/")
     else:
         form = ChangePasswordForm(user = usuario)
-        return render(request, 'AppGeneral/changePassword.html', {"form": form})
+        return render(request, 'AppGeneral/changePassword.html', {"form": form}, {'avatar': avatar})
 @login_required   
 def about(request):
-    return render(request, 'AppGeneral/about.html')
+    avatar = getavatar(request)
+    return render(request, 'AppGeneral/about.html', {'avatar': avatar})
 
 @login_required
 def pages(request):
+    avatar = getavatar(request)
     blogs = Blog.objects.get()
-    return render(request, 'AppGeneral/pages.html', {'blogs': blogs})
+    return render(request, 'AppGeneral/pages.html', {'blogs': blogs}, {'avatar': avatar})
 def mensajes(request):
     pass
 
@@ -117,7 +123,7 @@ def editAvatar(request):
             form = AvatarForm()
         except:
             form = AvatarForm()
-    return render(request, "AppGeneral/avatar.html", {'form': form})
+    return render(request, "AppGeneral/avatar.html", {'form': form}, {'avatar': avatar})
 
 @login_required
 def getavatar(request):
