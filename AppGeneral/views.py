@@ -90,7 +90,7 @@ def cambiarPassword(request):
                 user = form.save()
                 update_session_auth_hash(request, user)
             #return render(request, 'AppGeneral/changePassword.html', {'error': 'Las contraseñas no coinciden'})
-        return redirect("/perfil/")
+        return redirect('/profile/')
     else:
         form = ChangePasswordForm(user = usuario)
         return render(request, 'AppGeneral/changePassword.html', {"form": form, 'avatar': avatar})
