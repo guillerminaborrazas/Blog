@@ -23,7 +23,7 @@
         <div class="row">
             {% for mensaje in todos %}
             <div class="align-items-center">
-                <div class="profile"><h5>{{ mensaje.usuario.username }}:&nbsp </h5><p>{{ mensaje.contenido }}  {{ mensaje.fecha }}</p></div>
+                <div class="profile"><h5>{{ mensaje.usuario.username }}:&nbsp </h5><p>{{ mensaje.contenido }} - {{ mensaje.fecha }}</p></div>
                 <br>
             </div>
             {% endfor %}
