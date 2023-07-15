@@ -141,12 +141,13 @@ def getavatar(request):
         avatar = None
     return avatar
 
-
+@login_required
 def eliminarBlog(request, id):
     blog = Blog.objects.get(id = id)
     blog.delete()
     return redirect ('/pages/')
-
+    
+@login_required
 def editarBlog(request, id):
     blog = Blog.objects.get(id = id)
     if request.method == 'POST':
@@ -169,7 +170,8 @@ def editarBlog(request, id):
         miFormulario = formSetBlog(initial={'pais': blog.pais, 'titulo': blog.titulo, 'subtitulo': blog.subtitulo, 'cuerpo': blog.cuerpo, 'imagen': blog.imagen})
         avatar = getavatar(request)
         return render(request, "AppGeneral/editarBlog.html", {"miFormulario": miFormulario, 'avatar': avatar})
-    
+
+@login_required
 def verBlog(request, id):
     blog = Blog.objects.get(id = id)
     avatar = getavatar(request)
