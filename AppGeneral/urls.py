@@ -2,6 +2,7 @@ from django.contrib import admin
 from django.urls import path
 from AppGeneral.views import *
 from django.contrib.auth.views import LogoutView
+from AppMensajeria.views import mensajes
 
 urlpatterns = [
     path('', inicio, name="Inicio"),

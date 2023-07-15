@@ -1,0 +1,71 @@
+.containerForm{
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    position: absolute !important;
+    height: 100% !important;
+    width: 100% !important;
+    background-image: url("../assets/img/FondoLogin.jpeg");
+    background-size: cover !important;
+}
+.navText{
+    color:wheat !important;
+}
+.titulo{
+    color: rosybrown !important;
+}
+
+.banda{
+    background-color: rosybrown !important;
+    height: 350px;
+    width: 100%;
+}
+
+.formLogin{
+    font-weight: bold;
+    background: rosybrown;
+    padding: 40px 20px 20px 20px;
+    border-radius: 5px;
+    width: 350px;
+    height: 350px;
+
+}
+.formLogin div{
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.inputLogin{
+    border-radius: 5px;
+    border: 1px solid rebeccapurple;
+    width: 90%;
+}
+
+.textoAbout{
+    width: 100% !important;
+}
+.profile {
+    display: flex;
+    align-items: baseline;
+}
+.profile > p {
+    margin: 0;
+  }
+
+.formBlog{
+    justify-content: center !important;
+    align-items: center !important;
+    position: absolute !important;
+    height: 100% !important;
+    width: 100% !important;
+    background-color: rgb(199, 157, 157);
+    background-repeat: repeat !important;
+    background-attachment: local;
+    
+}
+
+.botonEdit{
+    color: white !important;
+}

@@ -107,8 +107,6 @@ def pages(request):
     avatar = getavatar(request)
     blogs = Blog.objects.get_queryset()
     return render(request, 'AppGeneral/pages.html', {'blogs': blogs, 'avatar': avatar})
-def mensajes(request):
-    pass
 
 
 
