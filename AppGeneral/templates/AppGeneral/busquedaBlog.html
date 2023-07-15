@@ -22,7 +22,7 @@
                 <p>{{ element.titulo }}</p>
                 <p>{{ element.subtitulo }}</p>
                 <a href="{% url 'blog_ver' element.id%}"><button class="btn btn-success">Ver más</button></a>
-                {% if user.id == blog.autor.id %}
+                {% if user.id == element.autor.id %}
                     <a href="{% url 'blog_editar' element.id %}"><button class="btn btn-warning botonEditar">Editar</button></a>
                     <a href="{% url 'blog_eliminar' element.id %}"><button class="btn btn-danger">X</button></a>
                     <br>
