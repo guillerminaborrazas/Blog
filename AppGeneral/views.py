@@ -89,7 +89,7 @@ def cambiarPassword(request):
             if request.POST['new_password1'] == request.POST['new_password2']:
                 user = form.save()
                 update_session_auth_hash(request, user)
-            return render(request, 'AppGeneral/changePassword.html', {'error': 'Las contraseñas no coinciden'})
+            #return render(request, 'AppGeneral/changePassword.html', {'error': 'Las contraseñas no coinciden'})
         return redirect("/perfil/")
     else:
         form = ChangePasswordForm(user = usuario)
@@ -176,3 +176,18 @@ def verBlog(request, id):
     blog = Blog.objects.get(id = id)
     avatar = getavatar(request)
     return render(request, 'AppGeneral/blog.html', {'blog': blog, 'avatar': avatar})
+
+@login_required
+def buscoBlog(request):
+    avatar = getavatar(request)
+    if request.method == 'POST':
+        form = buscarBlog(request.POST)
+        if form.is_valid():
+            paisBuscado = form.cleaned_data['pais']
+            blog = Blog.objects.filter(pais = paisBuscado)
+            form = buscarBlog()
+            return render(request, 'AppGeneral/busquedaBlog.html', {'blog':blog, 'avatar': avatar, 'form': form})
+    else:
+        blog = Blog.objects.get_queryset()
+        form = buscarBlog()
+        return render(request, 'AppGeneral/busquedaBlog.html', {'blog':blog, 'avatar': avatar, 'form': form})

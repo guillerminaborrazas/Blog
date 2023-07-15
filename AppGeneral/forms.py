@@ -41,3 +41,6 @@ class ChangePasswordForm(PasswordChangeForm):
 
 class AvatarForm(forms.Form):
     avatar = forms.ImageField()
+
+class buscarBlog(forms.Form):
+    pais = forms.CharField(widget= forms.TextInput())

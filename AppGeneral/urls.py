@@ -17,7 +17,8 @@ urlpatterns = [
     path('pages/<id>', verBlog, name='blog_ver'),
     path('editBlog/<id>', editarBlog, name='blog_editar'),
     path('deleteBlog/<id>', eliminarBlog, name='blog_eliminar'),
-    path('editAvatar', editAvatar, name='Avatar'),
+    path('editAvatar/', editAvatar, name='Avatar'),
+    path('findBlog/', buscoBlog, name='buscarBlog'),
     path('logout', LogoutView.as_view(template_name= 'AppGeneral/login.html'), name = 'Logout'),
     
 ]

@@ -1,0 +1,43 @@
+{% extends 'AppGeneral/inicio.html' %}
+{% load static %}
+<div>
+    {% block contenidoQueCambia %}
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="container text-center">
+        <br>
+        <br>
+        <form method="post" style="width: 40%; text-align: center; padding-left: 450px;">{% csrf_token %}
+            <p>{{ form.as_p }} <button type="submit" class="btn btn-primary">Buscar</button></p>
+        </form>
+        <h1>Blogs hallados</h1>
+        <div class="row">
+            {% for element in blog %}
+            <div class="col-sm-6 align-items-center">
+                <div class="card-body">
+                <img src="{{element.imagen.url}}" width="100px">
+                <h5>{{ element.pais }}</h5>
+                <p>{{ element.titulo }}</p>
+                <p>{{ element.subtitulo }}</p>
+                <a href="{% url 'blog_ver' element.id%}"><button class="btn btn-success">Ver más</button></a>
+                {% if user.id == blog.autor.id %}
+                    <a href="{% url 'blog_editar' element.id %}"><button class="btn btn-warning botonEditar">Editar</button></a>
+                    <a href="{% url 'blog_eliminar' element.id %}"><button class="btn btn-danger">X</button></a>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+    </div>
+    <br>
+    <br>
+</div!>
+{% endblock %}
+    </div>
+    
+    <br>
