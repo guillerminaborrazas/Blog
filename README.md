@@ -6,3 +6,4 @@ En la sección de "Pages" un usuario puede acceder a todos los blogs publicados,
 En la sección de mensajes el usuario puede publicar mensajes al foro y ver los mensajes publicados por otros, con información de quién lo publicó y la fecha y hora.
 En Perfil el usuario puede ver la información asociada a su cuenta, editar sus datos en "Editar Perfil" (en donde también se da la opción de cambiar la contraseña) o modificar su foto entrando en "Avatar".
 Finalmente al apretar en Logout se sale de la sesión.
+Cosas que no pude resolver bien: Al crear o editar un blog el fondo no me baja con la publicación, queda blanco abajo. Intente buscar como se hace y lo probe pero no me funcionó.
