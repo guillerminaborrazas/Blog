@@ -1,0 +1,18 @@
+<div>
+    {% extends "AppGeneral/inicio.html" %}
+    {% load static %}
+    {% block contenidoQueCambia %}
+        <div class="container text-center" style="padding-top: 50px">
+            <br>
+            <br>
+            <h2>{{ blog.pais }}</h2>
+            <h3>{{ blog.titulo }}</h3>
+            <h4>{{ blog.subtitulo }}</h4>
+            <img src="{{blog.imagen.url}}" width="400px">
+            <p>{{ blog.cuerpo }}</p>
+            <h6>{{ blog.autor }}</h6>
+            <p>{{ blog.fecha }}</p>
+        </div>
+    {% endblock %}
+
+</div>

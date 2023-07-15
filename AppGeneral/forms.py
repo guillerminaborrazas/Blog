@@ -16,15 +16,17 @@ class UserEditForm(UserChangeForm):
         help_texts = {k:"" for k in fields}
 
 class formSetBlog(forms.ModelForm):
+    pais = forms.CharField(widget= forms.TextInput())
     titulo = forms.CharField(widget= forms.TextInput())
     subtitulo = forms.CharField(widget= forms.TextInput())
     cuerpo = forms.CharField(widget= forms.Textarea())
     #autor = forms.CharField()
     #fecha = forms.DateTimeField()
     imagen = forms.ImageField()
+
     class Meta:
         model = Blog
-        fields = ['titulo', 'subtitulo', 'cuerpo', 'imagen']
+        fields = ['pais','titulo', 'subtitulo', 'cuerpo' ,'imagen']
         help_texts = {k:"" for k in fields} 
 
 class ChangePasswordForm(PasswordChangeForm):
